@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<Tab text="Customers" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="task_controller.TaskCustomersController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <TableView fx:id="customerTableView" layoutY="94.0" prefHeight="316.0" prefWidth="1600.0">
+               <columns>
+                  <TableColumn fx:id="customerId" prefWidth="45.0" text="id" />
+                  <TableColumn fx:id="customerFirstName" prefWidth="107.99996948242188" text="First Name" />
+                  <TableColumn fx:id="customerMiddleName" prefWidth="125.0" text="Middle Name" />
+                  <TableColumn fx:id="customerLastName" prefWidth="112.0" text="Last Name" />
+                  <TableColumn fx:id="customerEmail" prefWidth="147.0" text="Email" />
+                  <TableColumn fx:id="customerSSN" prefWidth="122.0" text="SSN" />
+                  <TableColumn fx:id="customerPhone" prefWidth="111.0" text="Phone" />
+                  <TableColumn fx:id="customerStreetName" prefWidth="148.0" text="Street Name" />
+                  <TableColumn fx:id="customerAptNo" prefWidth="130.0" text="Apartment" />
+                  <TableColumn fx:id="customerCity" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="customerCountry" prefWidth="111.0" text="Country" />
+                  <TableColumn fx:id="customerState" prefWidth="94.0" text="State" />
+                  <TableColumn fx:id="customerZip" minWidth="0.0" prefWidth="87.0" text="Zip" />
+                  <TableColumn fx:id="customerNumberOfCC" minWidth="0.0" prefWidth="134.0" text="Number Of CC" />
+               </columns>
+            </TableView>
+            <TableView fx:id="transactionTableView" layoutX="31.0" layoutY="567.0" prefHeight="272.0" prefWidth="607.0">
+               <columns>
+                  <TableColumn fx:id="transactionId" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="transactionCreditCard" prefWidth="89.99996948242188" text="Credit Card" />
+                  <TableColumn fx:id="transactionType" prefWidth="145.00003051757812" text="Transaction Type" />
+                  <TableColumn fx:id="transactionValue" prefWidth="147.0" text="Transaction Value" />
+                  <TableColumn fx:id="transactionDate" prefWidth="147.0" text="Transaction Date" />
+               </columns>
+            </TableView>
+            <DatePicker fx:id="transactionsDateFrom" layoutX="31.0" layoutY="508.0" prefHeight="38.0" prefWidth="198.0" promptText="From" />
+            <DatePicker fx:id="transactionsDateTo" layoutX="263.0" layoutY="508.0" prefHeight="39.0" prefWidth="198.0" promptText="To" />
+            <Button layoutX="488.0" layoutY="508.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="148.0" text="Filter" />
+            <Label layoutX="31.0" layoutY="465.0" prefHeight="26.0" prefWidth="169.0" text="Transactions" textFill="#000000bb">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="48.0" prefHeight="16.0" prefWidth="128.0" text="Customers" textFill="#000000b0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="680.0" layoutY="469.0" text="Credit Cards" textFill="#000000c5">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TableView fx:id="creditCardTableView" layoutX="680.0" layoutY="507.0" prefHeight="111.0" prefWidth="879.0">
+               <columns>
+                  <TableColumn fx:id="creditCardId" prefWidth="72.0" text="id" />
+                  <TableColumn fx:id="creditCardNumber" prefWidth="164.0" text="Credit Card Number" />
+                  <TableColumn fx:id="creditCardBranchName" prefWidth="125.0" text="Branch Name" />
+                  <TableColumn fx:id="creditCardDay" prefWidth="83.0" text="Day" />
+                  <TableColumn fx:id="creditCardMonth" prefWidth="83.0" text="Month" />
+                  <TableColumn fx:id="creditCardYear" prefWidth="88.0" text="Year" />
+                  <TableColumn prefWidth="99.0" text="Save" />
+               </columns>
+            </TableView>
+            <Label layoutX="680.0" layoutY="637.0" text="Generate Monthly Bill" textFill="#000000c1">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="generateMonthsComboBox" layoutX="679.0" layoutY="686.0" prefHeight="35.0" prefWidth="231.0" promptText="Month" />
+            <ComboBox fx:id="generateYearsComboBox" layoutX="680.0" layoutY="745.0" prefHeight="34.0" prefWidth="232.0" promptText="Year" />
+            <Button fx:id="generateBillButton" layoutX="681.0" layoutY="802.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="233.0" text="Generate" />
+            <TextField fx:id="customerSearchByFullName" layoutX="208.0" layoutY="49.0" />
+            <Label layoutX="208.0" layoutY="26.0" text="Search By name:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="customerSearchByEmail" layoutX="422.0" layoutY="49.0" />
+            <Label layoutX="425.0" layoutY="24.0" text="Search By email:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="customerSearchBySSN" layoutX="644.0" layoutY="49.0" />
+            <Label layoutX="645.0" layoutY="24.0" text="Search By SSN:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="customerSearchByPhone" layoutX="869.0" layoutY="49.0" />
+            <Label layoutX="869.0" layoutY="21.0" text="Search By phone:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="generateLabelText" layoutX="682.0" layoutY="868.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</Tab>

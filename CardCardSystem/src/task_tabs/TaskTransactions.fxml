@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<Tab text="Transactions" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="task_controller.TaskTransactionsController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <TableView fx:id="transactionTableView" layoutX="-1.0" layoutY="108.0" prefHeight="505.0" prefWidth="1600.0">
+               <columns>
+                  <TableColumn fx:id="transactionId" prefWidth="117.99996948242188" text="id" />
+                  <TableColumn fx:id="customerFirstName" prefWidth="231.0" text="First Name" />
+                  <TableColumn fx:id="customerLastName" prefWidth="216.0" text="Last Name" />
+                  <TableColumn fx:id="transactionCreditCard" prefWidth="255.0" text="Credit Card" />
+                  <TableColumn fx:id="transactionType" prefWidth="201.0" text="Transaction Type" />
+                  <TableColumn fx:id="transactionValue" prefWidth="163.0" text="Transaction Value" />
+                  <TableColumn fx:id="customerZip" prefWidth="196.0" text="Zip Code" />
+                  <TableColumn fx:id="transactionDate" prefWidth="219.0" text="Transaction Date" />
+               </columns>
+            </TableView>
+            <Label layoutX="36.0" layoutY="46.0" text="Transactions" textFill="#000000a1">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="294.0" layoutY="31.0" text="Filter By Zip Code" textFill="#000000b1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="581.0" layoutY="31.0" text="Filter By Month" textFill="#000000b1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="921.0" layoutY="28.0" text="Filter By Year" textFill="#000000b1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="transactionFilterByZip" layoutX="293.0" layoutY="56.0" prefHeight="31.0" prefWidth="171.0" />
+            <ComboBox fx:id="transactionMonthsComboBox" layoutX="581.0" layoutY="54.0" prefHeight="35.0" prefWidth="231.0" promptText="Month" />
+            <ComboBox fx:id="transactionYearsComboBox" layoutX="921.0" layoutY="55.0" prefHeight="34.0" prefWidth="232.0" promptText="Year" />
+            <ComboBox fx:id="transactionTypesComboBox" layoutX="148.0" layoutY="656.0" prefHeight="35.0" prefWidth="231.0" promptText="Types" />
+            <ComboBox fx:id="transactionStatesComboBox" layoutX="688.0" layoutY="655.0" prefHeight="35.0" prefWidth="231.0" promptText="States" />
+            <Label layoutX="148.0" layoutY="728.0" text="Total Number Of Transactions: " />
+            <Label fx:id="transactionsNumberByTypes" layoutX="148.0" layoutY="759.0" text="0" />
+            <Label layoutX="149.0" layoutY="817.0" text="Total Value Of Transactions:" />
+            <Label fx:id="transactionsValueByTypes" layoutX="151.0" layoutY="850.0" text="0" />
+            <Label layoutX="689.0" layoutY="727.0" text="Total Number Of Transactions: " />
+            <Label fx:id="transactionsNumberByState" layoutX="689.0" layoutY="758.0" text="0" />
+            <Label layoutX="690.0" layoutY="816.0" text="Total Value Of Transactions:" />
+            <Label fx:id="transactionsValueByState" layoutX="692.0" layoutY="849.0" text="0" />
+         </children>
+      </AnchorPane>
+   </content>
+</Tab>

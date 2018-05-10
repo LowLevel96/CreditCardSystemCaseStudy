@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/model/Customer.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/database/DatabaseConnection.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/model/CreditCard.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/cardcardsystem/MainStageLoader.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/task_controller/TaskCustomersController.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/database/Queries.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/task_tabs/TaskCustomers.fxml</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/model/Transaction.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/mainstage/MainStageController.java</file>
+            <file>file:/home/lowlevel/NetBeansProjects/CardCardSystem/src/cardcardsystem/Main.java</file>
+        </group>
+    </open-files>
+</project-private>
