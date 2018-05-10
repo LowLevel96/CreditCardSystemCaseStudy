@@ -1,0 +1,19 @@
+sqoop import \
+--connect jdbc:mysql://localhost/CASESTUDY \
+--driver com.mysql.jdbc.Driver \
+-username=root \
+-password=password \
+--query "SELECT CONCAT(CreditCard.day,CreditCard.month,CreditCard.year) as TIMEID, CreditCard.day, CreditCard.month,
+CASE
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 1 THEN 'FIRST'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 2 THEN 'SECOND'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 3 THEN 'THIRD'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 4 THEN 'FOURTH'
+END as Quarter
+, CreditCard.year
+FROM CreditCard
+WHERE \$CONDITIONS" \
+--split-by CreditCard.TIMEID \
+--target-dir /home/maria_dev/Credit_Card_System/TimeID \
+-m 1;
+
