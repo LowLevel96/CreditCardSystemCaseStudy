@@ -1,13 +1,12 @@
-sqoop import \
+sqoop job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop \
+--create importBranchTable -- import \
 --connect jdbc:mysql://localhost/CASESTUDY \
 --driver com.mysql.jdbc.Driver \
--username=root \
--password=password \
 --query "SELECT b.branch_code as BRANCH_CODE, b.branch_name as BRANCH_NAME, b.branch_street as BRANCH_STREET, b.city as BRANCH_CITY,
                                         s.name as BRANCH_STATE, b.zip as BRANCH_ZIP, b.phone as BRANCH_PHONE, b.LAST_UPDATED
 FROM Branch b JOIN State s ON (b.state=s.id)
 WHERE \$CONDITIONS" \
 --split-by Branch.branch_code \
---target-dir /home/maria_dev/Credit_Card_System/Branch \
+--target-dir /user/maria_dev/Credit_Card_System/Branch \
 -m 1;
 

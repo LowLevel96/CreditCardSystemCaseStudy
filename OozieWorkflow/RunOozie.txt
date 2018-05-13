@@ -1,0 +1,1 @@
+oozie job --oozie http://localhost:11000/oozie -config /home/maria_dev/Oozie/job.properties -run

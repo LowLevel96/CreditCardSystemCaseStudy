@@ -1,13 +1,12 @@
-sqoop import \
+sqoop job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop \
+--create importCreditCardTable -- import \
 --connect jdbc:mysql://localhost/CASESTUDY \
 --driver com.mysql.jdbc.Driver \
--username=root \
--password=password \
 --query "SELECT t.id, cc.credit_card_no, CONCAT(cc.day, cc.month, cc.year) as TIMEID, c.ssn, b.branch_code, t.transaction_type, t.transaction_value
 FROM CreditCard cc JOIN Customer c ON (cc.customer=c.id)
 JOIN Branch b ON (b.id=cc.branch_code)
 JOIN Transactions t ON (cc.id=t.credit_card_no)
 WHERE \$CONDITIONS" \
 --split-by Transactions.id \
---target-dir /home/maria_dev/Credit_Card_System/CreditCard \
+--target-dir /user/maria_dev/Credit_Card_System/CreditCard \
 -m 1;
