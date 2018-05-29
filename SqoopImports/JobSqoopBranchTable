@@ -8,5 +8,9 @@ FROM Branch b JOIN State s ON (b.state=s.id)
 WHERE \$CONDITIONS" \
 --split-by Branch.branch_code \
 --target-dir /user/maria_dev/Credit_Card_System/Branch \
+--append \
+--incremental lastmodified \
+--check-column LAST_UPDATED \
+--last-value "2018-05-09 11:35:25" \
 -m 1;
 

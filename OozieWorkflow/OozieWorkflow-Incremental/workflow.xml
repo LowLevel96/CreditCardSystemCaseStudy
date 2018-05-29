@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-app xmlns="uri:oozie:workflow:0.2" name="credit-card">
+    <start to="sqoop-time-table"/>
+
+    <!-- Sqoop Time Table -->
+    <action name="sqoop-time-table">
+        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importTimeTable</command>
+        </sqoop>
+        <ok to="sqoop-branch-table"/>
+        <error to="fail"/>
+    </action>
+
+    <!-- Sqoop Branch Table -->
+    <action name="sqoop-branch-table">
+        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importBranchTable</command>
+        </sqoop>
+        <ok to="sqoop-customer-table"/>
+        <error to="fail"/>
+    </action>
+
+    <!-- Sqoop Customer Table -->
+    <action name="sqoop-customer-table">
+        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importCustomerTable</command>
+        </sqoop>
+        <ok to="sqoop-creditcard-table"/>
+        <error to="fail"/>
+    </action>
+
+    <!-- Sqoop Credit Card Table -->
+    <action name="sqoop-creditcard-table">
+        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+	    <prepare>
+                <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CreditCard"/>
+            </prepare>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importCreditCardTable</command>
+        </sqoop>
+        <ok to="hive-creditcard-table"/>
+        <error to="fail"/>
+    </action>
+
+    <!-- Hive Credit Card Table -->
+    <action name="hive-creditcard-table">
+        <hive xmlns="uri:oozie:hive-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <script>IncrementCreateCreditCardTable.sql</script>
+        </hive>
+        <ok to="end"/>
+        <error to="fail"/>
+    </action>
+
+
+    <kill name="fail">
+        <message>Sqoop failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>

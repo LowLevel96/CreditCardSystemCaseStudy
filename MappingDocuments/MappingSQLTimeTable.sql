@@ -1,9 +1,9 @@
-SELECT CONCAT(cc.day,cc.month,cc.year) as TIMEID, cc.day, cc.month,
+SELECT CAST(DATE_FORMAT(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day), "%Y%m%d") AS UNSIGNED) as TIMEID, CreditCard.day, CreditCard.month,
 CASE
-	WHEN QUARTER(CONCAT(cc.year, '-', cc.month, '-', cc.day)) = 1 THEN 'FIRST'
-	WHEN QUARTER(CONCAT(cc.year, '-', cc.month, '-', cc.day)) = 2 THEN 'SECOND'
-	WHEN QUARTER(CONCAT(cc.year, '-', cc.month, '-', cc.day)) = 3 THEN 'THIRD'
-	WHEN QUARTER(CONCAT(cc.year, '-', cc.month, '-', cc.day)) = 4 THEN 'FOURTH'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 1 THEN 'FIRST'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 2 THEN 'SECOND'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 3 THEN 'THIRD'
+        WHEN QUARTER(CONCAT(CreditCard.year, '-', CreditCard.month, '-', CreditCard.day)) = 4 THEN 'FOURTH'
 END as Quarter
-, cc.year
-FROM CreditCard cc;
+, CreditCard.year
+FROM CreditCard;

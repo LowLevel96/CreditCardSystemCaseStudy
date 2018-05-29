@@ -13,5 +13,9 @@ LEFT JOIN Countries ON (s.country_id=Countries.id)
 WHERE \$CONDITIONS" \
 --split-by Customer.ssn \
 --target-dir /user/maria_dev/Credit_Card_System/Customer \
+--append \
+--incremental lastmodified \
+--check-column LAST_UPDATED \
+--last-value "2018-05-09 11:36:25" \
 -m 1;
 

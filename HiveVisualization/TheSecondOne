@@ -1,0 +1,5 @@
+SELECT transaction_type, quarter, sum(transaction_value)
+FROM CASESTUDY.CDW_SAPP_F_CREDIT_CARD
+JOIN CASESTUDY.CDW_SAPP_D_TIME
+ON (CASESTUDY.CDW_SAPP_F_CREDIT_CARD.id=CASESTUDY.CDW_SAPP_D_TIME.id)
+GROUP BY transaction_type, quarter;
