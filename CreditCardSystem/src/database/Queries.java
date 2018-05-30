@@ -190,7 +190,7 @@ public class Queries {
     
     public boolean updateCustomerFirstName(int id, String new_first_name){
         try {
-            String sql = "UPDATE Customer SET first_name=? WHERE id=?";
+            String sql = "UPDATE Customer SET first_name=? WHERE idirst_name=? W=?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, new_first_name);
             statement.setInt(2, id);
