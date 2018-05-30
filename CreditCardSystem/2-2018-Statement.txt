@@ -1,4 +1,0 @@
-Month: 2
-Year: 2018
-Balance: 29214.0
-Payments: 0.0
