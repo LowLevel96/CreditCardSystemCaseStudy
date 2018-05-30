@@ -17,6 +17,7 @@
                 </property>
             </configuration>
             <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importTimeTable</command>
+            <archive>/user/oozie/share/lib/lib_20161025075203/sqoop/java-json.jar#java-json.jar</archive>
         </sqoop>
         <ok to="sqoop-branch-table"/>
         <error to="fail"/>
@@ -37,6 +38,7 @@
                 </property>
             </configuration>
             <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importBranchTable</command>
+            <archive>/user/oozie/share/lib/lib_20161025075203/sqoop/java-json.jar#java-json.jar</archive>
         </sqoop>
         <ok to="sqoop-customer-table"/>
         <error to="fail"/>
@@ -54,6 +56,7 @@
                 </property>
             </configuration>
             <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importCustomerTable</command>
+            <archive>/user/oozie/share/lib/lib_20161025075203/sqoop/java-json.jar#java-json.jar</archive>
         </sqoop>
         <ok to="sqoop-creditcard-table"/>
         <error to="fail"/>
@@ -75,6 +78,7 @@
                 </property>
             </configuration>
             <command>job --meta-connect jdbc:hsqldb:hsql://sandbox.hortonworks.com:16000/sqoop --exec importCreditCardTable</command>
+            <archive>/user/oozie/share/lib/lib_20161025075203/sqoop/java-json.jar#java-json.jar</archive>
         </sqoop>
         <ok to="hive-time-table"/>
         <error to="fail"/>
