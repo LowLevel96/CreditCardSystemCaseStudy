@@ -1,3 +1,5 @@
+USE CASESTUDY;
+
 DROP TABLE IF EXISTS TEMP_CDW_SAPP_F_CREDIT_CARD;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS TEMP_CDW_SAPP_F_CREDIT_CARD
@@ -14,8 +16,8 @@ FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
 LOCATION '/user/maria_dev/Credit_Card_System/CreditCard';
 
--- set hive.exec.dynamic.partition=true;
--- set hive.exec.dynamic.partition.mode=nonstrict;
+set hive.exec.dynamic.partition=true;
+set hive.exec.dynamic.partition.mode=nonstrict;
 
 DROP TABLE CDW_SAPP_F_CREDIT_CARD;
 

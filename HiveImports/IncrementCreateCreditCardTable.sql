@@ -1,5 +1,4 @@
---set hive.exec.dynamic.partition=true;
-set hive.exec.dynamic.partition.mode=nonstrict;
+USE CASESTUDY;
 
 INSERT INTO TABLE CDW_SAPP_F_CREDIT_CARD
 PARTITION (TRANSACTION_TYPE)
