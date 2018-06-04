@@ -98,7 +98,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateTimeTable.sql</script>
+            <script>CreateTimeTable.q</script>
         </hive>
         <ok to="hive-customer-table"/>
         <error to="fail"/>
@@ -115,7 +115,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateCustomerTable.sql</script>
+            <script>CreateCustomerTable.q</script>
         </hive>
         <ok to="hive-creditcard-table"/>
         <error to="fail"/>
@@ -132,7 +132,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateCreditCardTable.sql</script>
+            <script>CreateCreditCardTable.q</script>
         </hive>
         <ok to="hive-branch-table"/>
         <error to="fail"/>
@@ -149,7 +149,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateBranchTable.sql</script>
+            <script>CreateBranchTable.q</script>
         </hive>
         <ok to="end"/>
         <error to="fail"/>
