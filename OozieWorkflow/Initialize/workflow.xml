@@ -98,7 +98,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateTimeTable.q</script>
+            <script>${nameNode}/user/maria_dev/HiveImports/CreateTimeTable.q</script>
         </hive>
         <ok to="hive-customer-table"/>
         <error to="fail"/>
@@ -115,7 +115,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateCustomerTable.q</script>
+            <script>${nameNode}/user/maria_dev/HiveImports/CreateCustomerTable.q</script>
         </hive>
         <ok to="hive-creditcard-table"/>
         <error to="fail"/>
@@ -132,7 +132,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateCreditCardTable.q</script>
+            <script>${nameNode}/user/maria_dev/HiveImports/CreateCreditCardTable.q</script>
         </hive>
         <ok to="hive-branch-table"/>
         <error to="fail"/>
@@ -149,7 +149,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>CreateBranchTable.q</script>
+            <script>${nameNode}/user/maria_dev/HiveImports/CreateBranchTable.q</script>
         </hive>
         <ok to="end"/>
         <error to="fail"/>

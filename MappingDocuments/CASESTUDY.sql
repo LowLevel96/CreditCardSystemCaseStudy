@@ -18,7 +18,7 @@
 --
 -- Table structure for table `Branch`
 --
-CREATE CASESTUDY;
+CREATE DATABASE CASESTUDY;
 USE CASESTUDY;
 
 DROP TABLE IF EXISTS `Branch`;

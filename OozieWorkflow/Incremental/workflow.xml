@@ -88,7 +88,7 @@
                     <value>${queueName}</value>
                 </property>
             </configuration>
-            <script>IncrementCreateCreditCardTable.q</script>
+            <script>${nameNode}/user/maria_dev/HiveImports/IncrementCreateCreditCardTable.q</script>
         </hive>
         <ok to="end"/>
         <error to="fail"/>
