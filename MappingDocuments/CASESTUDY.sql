@@ -18,6 +18,8 @@
 --
 -- Table structure for table `Branch`
 --
+CREATE CASESTUDY;
+USE CASESTUDY;
 
 DROP TABLE IF EXISTS `Branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

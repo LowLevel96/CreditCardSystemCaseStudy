@@ -62,7 +62,7 @@
             <job-tracker>${jobTracker}</job-tracker>
             <name-node>${nameNode}</name-node>
 	    <prepare>
-                <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CreditCard"/>
+                <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CreditCard/*"/>
             </prepare>
             <configuration>
                 <property>
